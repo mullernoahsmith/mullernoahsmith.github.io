@@ -1,31 +1,35 @@
-## Adobe Flash uninstaller on official Adobe website is a malware!!!
+## Official Adobe Flash uninstaller a malware?
 
-The first link on official Adobe website searching for Adobe Flash uninstaller is a malware.  The official Adobe website is linking an to a DMG (and probably windows exe), that is a malware, neither produced by them nor being downloaded from their website. 
+The first link on official Adobe website searching for Adobe Flash uninstaller is highly likely a malware.  The official Adobe website is linking to a DMG (and probably windows exe), that is likely a malware cross scripted on their official website. 
 
 A number of tech websites including PC World, MacWorld, Apple Insider, Cult of Mac and even Google Search Card for the keyword "Flash uninstaller mac" leads to this malware link.
 
 ### How did you come to know this?
 
-After temporarily using flash for a day, I google "remove flash mac" which led me to the official adobe page. Once downloaded, I tried to open the DMG when something caught my eye. The DMG was downloaded from 
+After temporarily using adobe flash for a day for an old application, I googled "remove flash mac" which led me to the official adobe page at https://helpx.adobe.com/flash-player/kb/uninstall-flash-player-mac-os.html. Once it was downloaded, I tried to open the DMG when something caught my eye. Thanks to Apple warning about unknown developers, I noticed DMG was downloaded from ezfyzz.graygeorge.win! Wait a minute - where did that come from!
 
-```markdown
-Syntax highlighted code block
+I again downloaded the dmg and read the metadata a second time! The dmg had the same source ezfyzz.graygeorge.win!
 
-# Header 1
-## Header 2
-### Header 3
+### Investigating source
 
-- Bulleted
-- List
+Next I checked if the website was correct or was a phishing website. The link was using https so I queried the certificate. 
 
-1. Numbered
-2. List
+```sh
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+❯ curl --insecure -v https://helpx.adobe.com 2>&1 | awk 'BEGIN { cert=0 } /^\* SSL connection/ { cert=1 } /^\*/ { if (cert) print }'
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES256-GCM-SHA384
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: C=US; ST=California; L=San Jose; O=Adobe Systems Incorporated; OU=IS; CN=*.adobe.com
+*  start date: Jan  5 00:00:00 2018 GMT
+*  expire date: Jan  5 12:00:00 2019 GMT
+*  issuer: C=US; O=DigiCert Inc; CN=DigiCert SHA2 Secure Server CA
+*  SSL certificate verify ok.
+* Connection #0 to host helpx.adobe.com left intact
 ```
 
+The certificate of the link looked legit and signed by Digicert to be an official certificate. 
+[Link](url) and ![Image](src)
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
