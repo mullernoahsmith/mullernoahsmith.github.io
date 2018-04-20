@@ -1,12 +1,12 @@
-## Welcome to GitHub Pages
+## Adobe Flash uninstaller on official Adobe website is a malware!!!
 
-You can use the [editor on GitHub](https://github.com/mullernoahsmith/mullernoahsmith.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+The first link on official Adobe website searching for Adobe Flash uninstaller is a malware.  The official Adobe website is linking an to a DMG (and probably windows exe), that is a malware, neither produced by them nor being downloaded from their website. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+A number of tech websites including PC World, MacWorld, Apple Insider, Cult of Mac and even Google Search Card for the keyword "Flash uninstaller mac" leads to this malware link.
 
-### Markdown
+### How did you come to know this?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+After temporarily using flash for a day, I google "remove flash mac" which led me to the official adobe page. Once downloaded, I tried to open the DMG when something caught my eye. The DMG was downloaded from 
 
 ```markdown
 Syntax highlighted code block
